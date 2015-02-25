@@ -51,7 +51,7 @@ function canvasApp(){
 
     function mouse_pressed_down(ev) {
   	  begin_drawing = true;
-	  context.fillStyle = colorChosen.innerHTML;
+	    context.fillStyle = colorChosen.innerHTML;
     }
 
     function mouse_released(ev) {
@@ -62,13 +62,14 @@ function canvasApp(){
 	  var x, y;	
 	  // Get the mouse position in the canvas
 	  x = ev.pageX;
-	  y = ev.pageY;
+	  y = ev.pageY - 80;
 
 	  if (begin_drawing) {
 	    context.beginPath();
-	    context.arc(x, y, 7, (Math.PI/180)*0, (Math.PI/180)*360, false);
+      size = document.getElementById("brocha").value;
+	    context.arc(x, y, size, (Math.PI/180)*0, (Math.PI/180)*360, false);
 	    context.fill();
-        context.closePath();
+      context.closePath();
 	  }
     }
 }
